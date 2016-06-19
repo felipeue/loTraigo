@@ -3,3 +3,5 @@ venv
 staticfiles
 *.sqlite
 .idea
+migrations
+docs

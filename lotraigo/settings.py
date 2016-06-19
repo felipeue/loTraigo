@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'ltApp',
+    'django_countries',
+    'django_nose',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -144,3 +146,5 @@ STATICFILES_DIRS = [
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
