@@ -5,4 +5,4 @@ psycopg2==2.6.1
 whitenoise==3.2
 python-amazon-simple-product-api
 django-countries
-django-nosegit 
+django-nose
