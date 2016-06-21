@@ -1,6 +1,6 @@
 """
 All the models for our loTraigo application
-Currently we support the following 6 views:
+Currently we support the following 6 models:
 
 1. **UserLt** - loTraigo's User model
 2. **Flight** - Flight of user
