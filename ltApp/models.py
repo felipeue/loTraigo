@@ -16,6 +16,7 @@ from django.contrib.auth.models import User
 # Import Country field for models
 from django_countries.fields import CountryField
 from django.db import models
+from django.core.exceptions import ValidationError
 
 
 # === User loTragio ===
@@ -24,6 +25,11 @@ class UserLt(models.Model):
     address = models.CharField(max_length=128)
     phone = models.CharField(max_length=20)
     rut = models.CharField(max_length=10, unique=True)
+    city = models.CharField(max_length=128)
+    commune = models.CharField(max_length=128)
+    cardNumber = models.BigIntegerField(unique=True)
+    expirationDate = models.CharField(max_length=5)
+    verificationNumber = models.IntegerField()
 
     def __unicode__(self):
         return self.userOrigin.username
@@ -39,6 +45,10 @@ class Flight(models.Model):
 
     def __unicode__(self):
         return unicode(self.id)
+
+    def vdates(self):
+        if self.dateFly == self.dateReturn:
+            raise ValidationError('Flys have the same date')
 
 
 # === Quotation ===

@@ -24,12 +24,22 @@ class InsertTest(TestCase):
         usuariolt = UserLt.objects.create(userOrigin=self.usuario,
                                           address="Isla de maipo sapbe",
                                           phone='+56971397675',
-                                          rut='7552796-9')
+                                          rut='7552796-9',
+                                          city='Santiago',
+                                          commune='Isla de maipo',
+                                          cardNumber='4966700575979827',
+                                          expirationDate='09/18',
+                                          verificationNumber='954')
 
         nt.assert_equal(usuariolt.userOrigin, self.usuario)
         nt.assert_equal(usuariolt.address, "Isla de maipo sapbe")
         nt.assert_equal(usuariolt.phone, "+56971397675")
         nt.assert_equal(usuariolt.rut, "7552796-9")
+        nt.assert_equal(usuariolt.city, "Santiago")
+        nt.assert_equal(usuariolt.commune, "Isla de maipo")
+        nt.assert_equal(usuariolt.cardNumber, "4966700575979827")
+        nt.assert_equal(usuariolt.expirationDate, "09/18")
+        nt.assert_equal(usuariolt.verificationNumber, "954")
         # ===Test insert Flight model===
         # create new user
         uViajero = User.objects.create_user(username='viajero',
@@ -41,18 +51,23 @@ class InsertTest(TestCase):
         usuarioLtV = UserLt.objects.create(userOrigin=uViajero,
                                            address='Isla de maipo sapbe',
                                            phone='+56971397675',
-                                           rut='18346436-1')
+                                           rut='18346436-1',
+                                           city='Santiago',
+                                           commune='Isla de maipo',
+                                           cardNumber='4966700575979828',
+                                           expirationDate='09/18',
+                                           verificationNumber='954')
         # ===Insert Flight data===
         vuelo = Flight.objects.create(traveller=usuarioLtV,
                                       origin='NZ',
                                       destiny='AF',
-                                      dateFly='2015-11-10',
+                                      dateFly='2015-11-20',
                                       dateReturn='2015-11-20')
 
         nt.assert_equal(vuelo.traveller, usuarioLtV)
         nt.assert_equal(vuelo.origin, "NZ")
         nt.assert_equal(vuelo.destiny, "AF")
-        nt.assert_equal(vuelo.dateFly, "2015-11-10")
+        nt.assert_equal(vuelo.dateFly, "2015-11-20")
         nt.assert_equal(vuelo.dateReturn, "2015-11-20")
 
         # ===Test insert Quotation model===
