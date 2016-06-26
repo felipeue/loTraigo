@@ -7,3 +7,4 @@ def index(request):
     amazon = AmazonAPI('AKIAIYBKV2XTJIHFPCXQ', 'ipwqJAnuEiIv89t5OZEttmvrKb6X1qa+TwisgExh', 'lotraigo-21')
     product = amazon.lookup(ItemId="B0051QVF7A")
     p = product.offer_url
+    return render(request, 'index.html', {'data': p})
