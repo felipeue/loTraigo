@@ -6,3 +6,4 @@ whitenoise==3.2
 python-amazon-simple-product-api
 django-countries
 django-nose
+bcrypt

@@ -98,6 +98,7 @@ class Sale(models.Model):
     numberSale = models.IntegerField(unique=True)
     date = models.DateTimeField()
     traveller = models.ForeignKey(UserLt)
+    detail = models.TextField(max_length=500)
 
     def __unicode__(self):
         return unicode(self.id)
