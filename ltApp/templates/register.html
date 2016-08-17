@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+{% load staticfiles %}
+{% load widget_tweaks %}
+<!--
+	Alpha by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Lo traigo</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link href="{% static "home/assets/css/main.css" %}" rel="stylesheet">
+		<link rel="shortcut icon" href="{% static "home/images/icono.png" %}"/>
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body>
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<header id="header">
+					<h1><a href="/">Lo Traigo</a> ahorra encargando.</h1>
+					<nav id="nav">
+						<ul class="actions">
+							<li>
+								<a href="/register/" class="button special">Regístrate</a>
+							</li>
+							<li>
+								<a href="/login/" class="button special">Inicia sesión</a>
+							</li>
+						</ul>
+					</nav>
+				</header>
+
+			<!-- Main -->
+				<section id="main" class="container">
+					<div class="row">
+						<div class="12u">
+
+							<!-- Form -->
+								<section class="box">
+								    {% if registered %}
+     								   <strong>Gracias por registrarte!</strong>
+        							   <a href="/">Volver a pagina de inicio.</a><br />
+									{% else %}
+									<h3>Ingresa tus datos</h3>
+									<form role="form" id="user_form" method="post" action="/register/" enctype="multipart/form-data">
+									{% csrf_token %}
+										<div class="row uniform 50%">
+											<div class="6u 12u(mobilep)">
+												{{ user_form.username }}
+												{{ user_form.username.errors }}
+											</div>
+											<div class="6u 12u(mobilep)">
+												{{ user_form.email }}
+												{{ user_form.email.errors }}
+											</div>
+										</div>
+										<div class="row uniform 50%">
+											<div class="6u 12u(mobilep)">
+												{{ user_form.first_name }}
+												{{ user_form.first_name.errors }}
+											</div>
+											<div class="6u 12u(mobilep)">
+												{{ user_form.last_name }}
+												{{ user_form.last_name.errors }}
+											</div>
+										</div>
+										<div class="row uniform 50%">
+											<div class="6u 12u(mobilep)">
+												{{ userlt_form.city }}
+												{{ userlt_form.city.errors }}
+											</div>
+											<div class="6u 12u(mobilep)">
+												{{ userlt_form.commune }}
+											</div>
+										</div>
+										<div class="row uniform 50%">
+											<div class="6u 12u(mobilep)">
+												{{ userlt_form.address }}
+												{{ userlt_form.address.errors }}
+											</div>
+										</div>
+										<div class="row uniform 50%">
+											<div class="6u 12u(mobilep)">
+												{{ userlt_form.rut }}
+												{{ userlt_form.rut.erros }}
+											</div>
+											<div class="6u 12u(mobilep)">
+												{{ userlt_form.phone }}
+												{{ userlt_form.phone.erros }}
+											</div>
+										</div>
+										<div class="row uniform 50%">
+											<div class="6u 12u(mobilep)">
+												{{ user_form.password }}
+												{{ user_form.password.errors }}
+											</div>
+											<div class="6u 12u(mobilep)">
+											<input type="password" name="pass" id="pass" value="" placeholder="Contraseña" />
+											</div>
+										</div>
+										<div class="row uniform">
+											<div class="12u">
+												<ul class="actions">
+													<li><input type="submit" value="Enviar" /></li>
+												</ul>
+											</div>
+										</div>
+										</form>
+									{% endif %}	
+								</section>
+
+						</div>
+					</div>
+					
+				</section>
+
+			<!-- Footer -->
+				<footer id="footer">
+						<ul class="icons">
+						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Lo Traigo, Inc.</li>
+						<li> +56999966387</li>
+						<li>lt@lotraigo.cl</li>
+					</ul>
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			
+			<script src="{% static "home/assets/js/jquery.min.js" %}"></script>
+			<script src="{% static "home/assets/js/jquery.dropotron.min.js" %}"></script>
+			<script src="{% static "home/assets/js/jquery.scrollgress.min.js" %}"></script>
+			<script src="{% static "home/assets/js/skel.min.js" %}"></script>
+			<script src="{% static "home/assets/js/util.js" %}"></script>
+			<!--[if lte IE 8]><script src="assets/home/js/ie/respond.min.js"></script><![endif]-->
+			<script src="{% static "home/assets/js/main.js" %}"></script>
+
+	</body>
+</html>

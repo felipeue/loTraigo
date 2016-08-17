@@ -27,12 +27,20 @@ class UserLt(models.Model):
     rut = models.CharField(max_length=10, unique=True)
     city = models.CharField(max_length=128)
     commune = models.CharField(max_length=128)
-    cardNumber = models.BigIntegerField(unique=True)
-    expirationDate = models.CharField(max_length=5)
-    verificationNumber = models.IntegerField()
 
     def __unicode__(self):
         return self.userOrigin.username
+
+
+# === Credit Card ===
+class CreditCard(models.Model):
+    userlt = models.OneToOneField(User)
+    cardNumber = models.BigIntegerField(unique=True)
+    expirationDate = models.CharField(max_length=5)
+    verificationNumber = models.IntegerField(max_length=3)
+
+    def __unicode__(self):
+        return self.cardNumber
 
 
 # === Flight ===

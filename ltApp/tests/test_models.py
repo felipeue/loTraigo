@@ -27,9 +27,7 @@ class InsertTest(TestCase):
                                           rut='7552796-9',
                                           city='Santiago',
                                           commune='Isla de maipo',
-                                          cardNumber='4966700575979827',
-                                          expirationDate='09/18',
-                                          verificationNumber='954')
+                                          )
 
         nt.assert_equal(usuariolt.userOrigin, self.usuario)
         nt.assert_equal(usuariolt.address, "Isla de maipo sapbe")
@@ -37,9 +35,15 @@ class InsertTest(TestCase):
         nt.assert_equal(usuariolt.rut, "7552796-9")
         nt.assert_equal(usuariolt.city, "Santiago")
         nt.assert_equal(usuariolt.commune, "Isla de maipo")
-        nt.assert_equal(usuariolt.cardNumber, "4966700575979827")
-        nt.assert_equal(usuariolt.expirationDate, "09/18")
-        nt.assert_equal(usuariolt.verificationNumber, "954")
+
+        tarjeta = CreditCard.objects.create(userlt=self.usuario,
+                                            cardNumber='4966700575979827',
+                                            expirationDate='09/18',
+                                            verificationNumber='954')
+
+        nt.assert_equal(tarjeta.cardNumber, "4966700575979827")
+        nt.assert_equal(tarjeta.expirationDate, "09/18")
+        nt.assert_equal(tarjeta.verificationNumber, "954")
         # ===Test insert Flight model===
         # create new user
         uViajero = User.objects.create_user(username='viajero',
@@ -54,9 +58,7 @@ class InsertTest(TestCase):
                                            rut='18346436-1',
                                            city='Santiago',
                                            commune='Isla de maipo',
-                                           cardNumber='4966700575979828',
-                                           expirationDate='09/18',
-                                           verificationNumber='954')
+                                           )
         # ===Insert Flight data===
         vuelo = Flight.objects.create(traveller=usuarioLtV,
                                       origin='NZ',

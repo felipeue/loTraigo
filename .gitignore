@@ -4,3 +4,4 @@ staticfiles
 *.sqlite
 .idea
 docs
+migrations

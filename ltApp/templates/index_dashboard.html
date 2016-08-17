@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block main %}
+<div class="col-lg-6">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Busca un producto
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+	         <form role="form">
+	                 <div class="form-group">
+	                    <label>¿Que buscas?</label>
+	                    <input class="form-control">
+	                    <p class="help-block">Ingresa el nombre del producto que buscas</p>
+	                 </div>
+	                 <button type="submit" class="btn btn-default">Buscar</button>
+	        </form>     
+        </div>
+    </div>    
+</div>
+<div class="col-lg-6">
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            Ultimos viajeros registrados
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+    
+
+        </div>
+        <div class="panel-footer">
+            Coordina con nuestros viajeros y trae tu producto.
+        </div>
+    </div>    
+</div>
+<div class="col-lg-6">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            Ultimos pedidos realizados.
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+	          
+
+        </div>
+        <div class="panel-footer">
+            Gana dinero transportando productos !
+        </div>
+    </div>    
+</div>
+{% endblock %}

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'ltApp',
     'django_countries',
     'django_nose',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -130,18 +131,18 @@ DATABASES['default'].update(db_from_env)
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Allow all host headers
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
+STATIC_PATH = os.path.join(PROJECT_ROOT, 'static')
 STATIC_URL = os.path.join(BASE_DIR, 'static')
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/'
-
 # Extra places for collectstatic to find static files.
-STATICFILES_DIRS = [
-    os.path.join(PROJECT_ROOT, 'static'),
-]
+STATICFILES_DIRS = (
+    STATIC_PATH,
+    )
 
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
@@ -152,8 +153,8 @@ TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 DST_RUN_SOUTH_MIGRATIONS = False
 
 PASSWORD_HASHERS = [
-'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
-'django.contrib.auth.hashers.BCryptPasswordHasher',
-'django.contrib.auth.hashers.PBKDF2PasswordHasher',
-'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+        'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+        'django.contrib.auth.hashers.BCryptPasswordHasher',
+        'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+        'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher'
 ]
